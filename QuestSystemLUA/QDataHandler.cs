@@ -152,9 +152,8 @@ namespace QuestSystemLUA
                     finalbytelist.Add(by);
             }
 
-            var itemname = System.Text.Encoding.ASCII.GetString(finalbytelist.ToArray());
-            var item = new Item();
-            item.SetDefaults(itemname);
+            var item = TShock.Utils.GetItemById(Convert.ToInt32(finalbytelist[0].ToString()));
+            var itemname = item.name.ToString().ToLower();
 
             foreach (AwaitingItem aitem in player.AwaitingItems)
             {
